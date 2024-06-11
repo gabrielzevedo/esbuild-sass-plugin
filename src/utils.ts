@@ -102,7 +102,7 @@ import {css} from "lit-element/lit-element.js";
 export default css\`${cssText.replace(/([$`\\])/g, '\\$1')}\`;
 `
 
-const styleModule = (cssText: string, nonce?: string) => nonce ? `\
+const styleModule = (cssText: string, nonce?: string) => typeof document !== 'undefined' ? '' : nonce ? `\
 const css = \`${cssText.replace(/([$`\\])/g, '\\$1')}\`;
 const style = document.createElement("style");
 style.setAttribute("nonce", ${nonce});
